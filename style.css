@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+  }
+
+  h2, h1 {
+    position: relative;
+    z-index: 10;
+    color: #ff1a4d;
+    text-shadow: 0 0 20px #ff3366, 0 0 40px #ff0033;
+    margin: 8px;
+  }
+
+  h2 {
+    font-size: 1.4em;
+    animation: glow 2s infinite alternate;
+    max-width: 90%;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    animation: glow 2s infinite alternate;
+  }
+
+  @keyframes glow {
+    0% { text-shadow: 0 0 10px #ff6699, 0 0 20px #ff0033; }
+    100% { text-shadow: 0 0 40px #ff1a4d, 0 0 80px #ff0033; }
+  }
+
+  svg.heart {
+    position: absolute;
+    fill: #ff002b;
+    filter: drop-shadow(0 0 15px #ff002b);
+    animation: heartbeat 1.5s infinite, flyIn var(--dur) linear forwards;
+    opacity: 0.9;
+    z-index: 1;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  @keyframes flyIn {
+    0% { opacity: 0; transform: translate(var(--startX), var(--startY)) scale(0.6); }
+    30% { opacity: 1; }
+    100% { opacity: 0; transform: translate(var(--endX), var(--endY)) scale(1.1); }
+  }
