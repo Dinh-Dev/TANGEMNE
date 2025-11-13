@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linh ơi 💖</title>
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<h2>
+Anh sẽ luôn là bờ vai vững chắc để em có thể tựa vào...<br>
+Em có tin anh chứ? 💞<br>
+Em có chịu cho anh cơ hội để anh làm bờ vai vững chắc hay không?<br>
+Linh ơi... Anh luôn muốn nói rằng —
+</h2>
+
+<h1>Anh yêu em rất nhiều 💖</h1>
+
+<script>
+function createHeart() {
+  const heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  heart.setAttribute("class", "heart");
+  heart.setAttribute("viewBox", "0 0 512 512");
+
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d",
+    "M471.7 73.5C441.2 43 396.4 28.3 352.1 40.3c-23.9 6.4-45.5 20.4-64.1 40.4l-31.9 33.9-31.9-33.9c-18.6-20-40.2-34-64.1-40.4-44.3-12-89.1 2.7-119.6 33.2C-7.1 115.8-9.9 176.4 28.7 218l204.5 217.6c14.7 15.7 38.9 15.7 53.6 0L483.3 218c38.6-41.6 35.8-102.2-11.6-144.5z"
+  );
+  heart.appendChild(path);
+
+  const size = 15 + Math.random() * 35; // nhỏ hơn để nhẹ
+  heart.style.width = `${size}px`;
+  heart.style.height = `${size}px`;
+
+  const edge = Math.floor(Math.random() * 4);
+  let startX, startY, endX, endY;
+  switch(edge){
+    case 0: startX = "-100vw"; startY = Math.random()*100+"vh"; break;
+    case 1: startX = "100vw"; startY = Math.random()*100+"vh"; break;
+    case 2: startX = Math.random()*100+"vw"; startY = "-100vh"; break;
+    default: startX = Math.random()*100+"vw"; startY = "100vh"; break;
+  }
+  endX = Math.random()*100 - 50+"vw";
+  endY = Math.random()*100 - 50+"vh";
+
+  heart.style.setProperty("--startX", startX);
+  heart.style.setProperty("--startY", startY);
+  heart.style.setProperty("--endX", endX);
+  heart.style.setProperty("--endY", endY);
+
+  const duration = 10 + Math.random()*5; // nhanh vừa phải
+  heart.style.setProperty("--dur", `${duration}s`);
+
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(), duration*1000);
+}
+
+// Xuất hiện nhiều tim ngay đầu nhưng ít hơn để nhẹ
+for(let i=0;i<50;i++) createHeart();
+
+// Sau đó liên tục
+setInterval(createHeart, 200);
+</script>
+
+</body>
+</html>
