@@ -61,7 +61,7 @@ envelope.onclick = () => {
   setTimeout(()=>{
     typewriterElement.style.display = "block";
 
-    // Gõ chữ
+    // Gõ chữ chậm
     const text = typewriterElement.textContent;
     typewriterElement.textContent = '';
     let index = 0;
@@ -69,12 +69,10 @@ envelope.onclick = () => {
       if(index < text.length){
         typewriterElement.textContent += text.charAt(index);
         index++;
-        setTimeout(typeWriter, 120); // chậm hơn để lãng mạn
+        setTimeout(typeWriter, 120); // chậm lãng mạn
       } else {
-        // Hiển thị dòng cuối rực rỡ từ từ bất ngờ, chậm hơn
-        finalText.style.opacity = 1;
+        // Hiển thị dòng cuối từ từ, bất ngờ
         finalText.style.animation = "finalAppear 3s ease-out forwards";
-        finalText.style.animationDelay = "0.5s";
       }
     }
     typeWriter();
