@@ -74,11 +74,11 @@ body {
     color: #ff1a1a;
     opacity: 0;
     transform: scale(0.8);
-    display: block;
     text-align: center;
     text-shadow: 0 0 10px #ff1a1a;
 }
 
+/* Keyframes xuất hiện từ từ và bùng sáng */
 @keyframes finalAppear {
     0% { opacity: 0; transform: scale(0.8); text-shadow: 0 0 5px #ff1a1a; }
     70% { opacity: 1; transform: scale(1); text-shadow: 0 0 15px #ff0033; }
